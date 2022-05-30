@@ -1,0 +1,45 @@
+﻿@model List<PersonelDbFirst.Models.Data.Ulke>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Ulke Listesi</h2>
+<div class="row">
+    <div class="col-md-7">
+        <form>
+            <input formaction="/Ulke/Create" class="btn btn-primary" type="submit" value="Ekle" />
+        </form>
+
+        <div class="alert alert-warning" role="alert">
+            @Session["Error"]
+        </div>
+
+
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Ad</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                    @*<th>İlgili Personel</th>*@
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.UlkeId</td>
+                        <td>@item.UlkeAd</td>
+                        <td><a href="/Ulke/Delete/@item.UlkeId" class="btn btn-danger">Sil</a></td>
+                        <td><a href="/Ulke/Update/@item.UlkeId" class="btn btn-success">Güncelle</a></td>
+                        @*<td><a href="/Personel/ListByUlkeId/@item.UlkeId" class="btn btn-primary">Gör</a></td>*@
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>

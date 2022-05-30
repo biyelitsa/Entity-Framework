@@ -1,0 +1,88 @@
+﻿@using PersonelDbFirst.Models.ViewModel
+
+@model PersonelModel
+@{
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-5">
+        <form method="post">
+
+            <input type="@Model.Type" class="form-control" name="Personel.PersonelId" value="@Model.Personel.PersonelId" />
+            <input type="text" class="form-control" name="Personel.Ad" value="@Model.Personel.Ad" />
+            <input type="text" class="form-control" name="Personel.Soyad" value="@Model.Personel.Soyad" />
+            <input type="text" class="form-control" name="Personel.Maas" value="@Model.Personel.Maas" />
+
+
+
+            <select class="form-control" name="Personel.UnvanId">
+                @foreach (var item in Model.UnvanList)
+                 {
+
+                    if (item.UnvanId == Model.Personel.UnvanId)
+                    {
+                        <option style="color:red" selected value="@item.UnvanId">@item.UnvanAd</option> 
+                    }
+                    else
+                    {
+                        <option value="@item.UnvanId">@item.UnvanAd</option>
+                    }
+                 }
+
+            </select>
+
+            <select class="form-control" name="Personel.UlkeId">
+                @foreach (var item in Model.UlkeList)
+                 {
+
+                    if (item.UlkeId == Model.Personel.UlkeId)
+                    {
+                        <option style="color:red" selected value="@item.UlkeId">@item.UlkeAd</option> }
+                    else
+                    {
+                        <option value="@item.UlkeId">@item.UlkeAd</option>}
+                 }
+
+            </select>
+            <select class="form-control" name="Personel.UyrukId">
+                    @foreach (var item in Model.UlkeList)
+                    {
+
+                        if (item.UlkeId == Model.Personel.UyrukId)
+                        {
+                            <option style="color:red" selected value="@item.UlkeId">@item.UlkeAd</option>
+
+                        }
+                        else
+                        {
+                            <option value="@item.UlkeId">@item.UlkeAd</option>
+
+                        }
+                    }
+
+                </select>
+            <select class="form-control" name="Personel.YoneticiId">
+
+                @foreach (var item in Model.YoneticiList)
+                {
+
+                    if (item.YoneticiId == Model.Personel.YöneticiId)
+                    {
+                        <option style="color:red" selected value="@item.YoneticiId">@item.AdSoy</option>
+ }
+                    else
+                    {
+                        <option value="@item.YoneticiId">@item.AdSoy</option>
+}
+                }
+
+            </select>
+
+            <input type="submit" class="@Model.BtnClass" value="@Model.BtnVal" />
+            <input type="submit" class="btn btn-warning" value="İptal" formaction="/Personel/List" />
+
+
+        </form>
+    </div>
+</div>

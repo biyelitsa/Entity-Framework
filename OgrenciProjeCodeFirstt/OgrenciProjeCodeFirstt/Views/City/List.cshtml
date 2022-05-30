@@ -1,0 +1,42 @@
+﻿@model List<OgrenciProjeCodeFirstt.Models.Data.CityDTO>
+@{
+  
+}
+
+<h2>City List</h2>
+<div class="row">
+    <div class="col-md-7">
+        <form>
+            <input formaction="/City/Create" class="btn btn-primary" type="submit" value="Add" />
+        </form>
+
+        <div class="alert alert-warning" role="alert">
+            @Session["Error"]
+        </div>
+
+
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.CityId</td>
+                        <td>@item.CityName</td>
+                        <td><a href="/City/Delete/@item.CityId" class="btn btn-danger">Delete</a></td>
+                        <td><a href="/City/Update/@item.CityId" class="btn btn-success">Update</a></td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>

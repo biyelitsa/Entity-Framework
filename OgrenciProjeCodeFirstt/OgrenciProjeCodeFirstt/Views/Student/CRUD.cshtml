@@ -1,0 +1,41 @@
+﻿@using OgrenciProjeCodeFirstt.Models
+@{
+    
+}
+
+<div class="row">
+    <div class="col-md-5">
+        <form method="post">
+
+            <input type="@Model.Type" class="form-control" name="Student.Id" value="@Model.Student.Id" />
+            <input type="text" class="form-control" name="Student.Name" value="@Model.Student.Name" />
+            <input type="text" class="form-control" name="Student.Surname" value="@Model.Student.Surname" />
+            <input type="text" class="form-control" name="Student.CityId" value="@Model.Student.CityId" />
+            <input type="text" class="form-control" name="Student.MotherName" value="@Model.Student.MotherName" />
+
+
+            <select class="form-control" name="Student.CityId">
+                @foreach (var item in Model.CityList)
+                {
+
+                    if (item.CityId == Model.Student.CityId)
+                    {
+                        <option style="color:red" selected value="@item.CityId">@item.CityName</option>
+
+                    }
+                    else
+                    {
+                        <option value="@item.CityId">@item.CityName</option>
+                    }
+                }
+
+            </select>
+
+            <input type="submit" class="@Model.BtnClass" value="@Model.BtnVal" />
+            <input type="submit" class="btn btn-warning" value="Cancel" formaction="/Student/List" />
+
+
+        </form>
+    </div>
+</div>
+

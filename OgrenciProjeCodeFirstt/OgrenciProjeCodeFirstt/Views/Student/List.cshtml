@@ -1,0 +1,37 @@
+﻿@model List<OgrenciProjeCodeFirstt.Models.Data.StudentDTO>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Student List</h2>
+<form>
+    <input type="submit" value="New Data" formaction="/Student/Create" />
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>City Id</th>
+                <th>Mother Name</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Surname</td>
+                    <td>@item.CityId</td>
+                    <td>@item.MotherName</td>
+                    <td><a class="btn btn-danger" href="/Student/Delete/@item.Id">Delete</a></td>
+                    <td><a class="btn btn-success" href="/Student/Update/@item.Id">Update</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
+

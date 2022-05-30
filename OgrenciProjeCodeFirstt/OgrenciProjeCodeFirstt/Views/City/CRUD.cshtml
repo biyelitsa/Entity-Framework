@@ -1,0 +1,22 @@
+﻿@using OgrenciProjeCodeFirstt.Models
+@{
+    
+}
+
+<h2>@Model.Baslik</h2>
+
+
+<div class="row">
+    <div class="col-md-5">
+        <form method="post">
+
+            <input type="@Model.Type" class="form-control" name="CityId" value="@Model.City.CityId" />
+            <input type="text" class="form-control" name="CityName" value="@Model.City.CityName" />
+            <input type="submit" class="@Model.BtnClass" value="@Model.BtnVal" />
+            <input type="submit" class="btn btn-warning" value="Cancel" formaction="/City/List" />
+
+
+        </form>
+
+    </div>
+</div>
